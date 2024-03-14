@@ -1,0 +1,27 @@
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        // Optimal Solution using Two Pointers!
+        int sum = 0;
+        int n = mat.length;
+        int row = 0;
+        int col = n - 1;
+
+        // Calculate both diagonals Sum !
+        while(row < n && col >= 0){
+            sum += mat[row][col];
+            sum += mat[row][row];
+
+            row++;
+            col--;
+        }
+
+        // if odd lengthed square matrix then there is a
+        // coincide of middle most element of mat[][] !
+        if(n % 2 == 1){
+            sum -= mat[n/2][n/2];
+        }
+
+        return sum;
+        // TC = O(n)  SC = O(1) !
+    }
+}
