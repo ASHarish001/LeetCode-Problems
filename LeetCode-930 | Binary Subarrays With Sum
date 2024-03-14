@@ -1,0 +1,22 @@
+class Solution {
+    public int numSubarraysWithSum(int[] nums, int goal) {
+        // Optimal Solution !
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int runSum = 0;
+        int res = 0;
+
+        for(int num : nums){
+            runSum += num;
+
+            if(map.containsKey(runSum - goal)){
+                res += map.get(runSum - goal);
+            }
+
+            map.put(runSum, map.getOrDefault(runSum, 0) + 1); 
+        }
+
+        return res;
+        // TC = SC = O(n) !
+    }
+}
