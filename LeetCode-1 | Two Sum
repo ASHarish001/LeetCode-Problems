@@ -1,0 +1,23 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // Optimal Solution !
+        int n = nums.length;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int[] res = new int[2];
+        // res[0] = -1; 
+        // res[1] = -1; // a pair that has sum = target always exists in nums[] !
+
+        for(int idx = 0; idx < n; idx++){
+            if(map.containsKey(target - nums[idx])){
+                res[0] = map.get(target - nums[idx]);
+                res[1] = idx;
+                break;
+            }
+
+            map.put(nums[idx], idx);
+        }
+
+        return res;
+        // TC = SC = O(n) !
+    }
+}
