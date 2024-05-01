@@ -1,0 +1,15 @@
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        // Using Built-in
+        int chIdx = word.indexOf(ch);
+
+        if(chIdx != -1){
+            return new StringBuilder(word.substring(0, chIdx + 1)).reverse().toString()
+                                + word.substring(chIdx + 1);
+        }
+        else{
+            return word;
+        }
+        // TC = O(n) ignore builtins tc and sc !
+    }
+}
