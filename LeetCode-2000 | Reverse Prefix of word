@@ -13,3 +13,29 @@ class Solution {
         // TC = O(n) ignore builtins tc and sc !
     }
 }
+
+// Without Built-in String Methods !
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        StringBuilder res = new StringBuilder();
+        int chIdx = -1;
+        int n = word.length();
+
+        for(int idx = 0; idx < n; idx++){
+            if(word.charAt(idx) == ch){
+                chIdx = idx;
+                break;
+            }
+        }
+
+        for(int idx = chIdx; idx >= 0; idx--){
+            res.append(word.charAt(idx));
+        }
+
+        for(int idx = chIdx + 1; idx < n; idx++){
+            res.append(word.charAt(idx));
+        }
+
+        return res.toString(); // TC = O(n) ignore res !
+    }
+}
