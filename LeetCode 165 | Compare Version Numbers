@@ -1,0 +1,33 @@
+class Solution {
+    public int compareVersion(String version1, String version2) {
+        // Optimal !
+        int p1 = 0;
+        int p2 = 0;
+        int n = version1.length(), m = version2.length();
+
+        while(p1 < n || p2 < m){
+            int r1 = 0;
+            int r2 = 0;
+
+            while(p1 < n && version1.charAt(p1) != '.'){
+                r1 = r1 * 10 + (version1.charAt(p1) - '0');
+                p1++;
+            }
+            while(p2 < m && version2.charAt(p2) != '.'){
+                r2 = r2 * 10 + (version2.charAt(p2) - '0');
+                p2++;
+            }
+
+            if(r1 < r2){
+                return -1;
+            }
+            else if(r1 > r2){
+                return 1;
+            }
+            p1++;
+            p2++;
+        }
+
+        return 0; // TC = O(n) !
+    }
+}
